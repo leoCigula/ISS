@@ -88,6 +88,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementState: {fileID: 4850420046438906615}
+  rocketPrefab: {fileID: 0}
+  playerCamera: {fileID: 3607788730470337992}
+  rocketSpeed: 5
 --- !u!1 &4851559643972864208
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +137,7 @@ GameObject:
   - component: {fileID: 1681770833805624196}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

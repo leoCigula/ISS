@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class shootingState : MonoBehaviour
 {
-    public MonoBehaviour movementState;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private MonoBehaviour movementState;
+    [SerializeField] private GameObject rocketPrefab;
+    [SerializeField] private Transform playerCamera;
+    [SerializeField] private float rocketSpeed = 25;
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        if (Input.GetMouseButtonDown(0))
+        {
+            var rocket = Instantiate(rocketPrefab, transform.position, Quaternion.identity);
+            rocket.GetComponent<Rigidbody>().AddForce(playerCamera.forward.normalized * rocketSpeed,ForceMode.Impulse);
+        }
 
-    void exitState()
-    {
+        if (Input.GetMouseButtonDown(1))
+        {
             movementState.enabled = true;
             enabled = false;
+        }
     }
+
 
 }

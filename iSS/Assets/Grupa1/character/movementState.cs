@@ -42,7 +42,7 @@ public class movementState : MonoBehaviour
 
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             shootingState.enabled = true;
             enabled = false;
