@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8182207715928498493}
   - component: {fileID: 5167498791411371293}
   m_Layer: 0
-  m_Name: Bazuka
+  m_Name: Rocket Launcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
