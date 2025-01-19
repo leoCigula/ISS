@@ -9,6 +9,12 @@ public class shootingState : MonoBehaviour
     [SerializeField] private Transform playerCamera;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float rocketSpeed = 25;
+    private Animator animator;
+
+    void Start()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -23,6 +29,7 @@ public class shootingState : MonoBehaviour
         {
             movementState.enabled = true;
             enabled = false;
+            animator.SetBool("isAiming", false);
         }
     }
 

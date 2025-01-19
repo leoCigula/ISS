@@ -9,13 +9,14 @@ public class character : MonoBehaviour
     public Transform player;
     public float mouseSensitivity = 2f;
     float cameraVerticalRotation = 0f;
-    public GameObject rocketLauncher;
-
+    public Transform leftShoulder;
     // Start is called before the first frame update
     void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        
     }
 
     // Update is called once per frame
@@ -27,8 +28,16 @@ public class character : MonoBehaviour
         cameraVerticalRotation -= inputY;
         cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -90f, 30f);
 
-        transform.localEulerAngles = Vector3.right * cameraVerticalRotation;
 
+        transform.localEulerAngles = Vector3.right * cameraVerticalRotation;
         player.transform.Rotate(Vector3.up * inputX);
+
+        
+    }
+
+    void LateUpdate()
+    {
+        if(name != "ThirdPersonCamera")
+            leftShoulder.localEulerAngles += new Vector3(0.5f, 0, 0.4f) * cameraVerticalRotation;
     }
 }
