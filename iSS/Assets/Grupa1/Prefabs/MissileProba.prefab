@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 525369661396727403}
   - component: {fileID: 7017987599260585154}
   m_Layer: 0
-  m_Name: Missile
+  m_Name: MissileProba
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,8 +44,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2677762906642957358}
   serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 0.2
+  m_Drag: 0.5
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -75,8 +75,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d06ab1d309254a47aa596df9e601074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 50
-  rotateSpeed: 5000
+  movementSpeed: 185
+  rotateSpeed: 4000
+  explosionPrefab: {fileID: 3436556444971429608, guid: ff3240a43d41bf045893c8fbbaf576c4, type: 3}
 --- !u!136 &7017987599260585154
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -181,15 +182,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 929096642082754999, guid: 953313e1b0914c64fa8d5b0affdd604e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 929096642082754999, guid: 953313e1b0914c64fa8d5b0affdd604e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 929096642082754999, guid: 953313e1b0914c64fa8d5b0affdd604e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 929096642082754999, guid: 953313e1b0914c64fa8d5b0affdd604e, type: 3}
       propertyPath: m_LocalPosition.x

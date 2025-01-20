@@ -7,8 +7,9 @@ public class Rocket : MonoBehaviour
 
     private Transform cameraTransform;
     private Rigidbody rb;
-    [SerializeField] private float movementSpeed = 5;
+    [SerializeField] private float movementSpeed = 25;
     [SerializeField] private float rotateSpeed = 5;
+    [SerializeField] private ParticleSystem explosionPrefab;
 
     private void Start()
     {
@@ -18,6 +19,8 @@ public class Rocket : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Player"))
         {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
             Destroy(gameObject);
         }
     }

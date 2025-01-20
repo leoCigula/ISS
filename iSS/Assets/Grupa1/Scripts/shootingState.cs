@@ -10,20 +10,25 @@ public class shootingState : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     private Animator animator;
     private GameObject rocket=null;
+    private float lastTimeFiredTime = 0f;
+    [SerializeField] private float reloadTime = 0f;
 
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        lastTimeFiredTime = 0f;
+        reloadTime = 0f;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && rocket==null)
+        if (Input.GetMouseButtonDown(0) && Time.time >= lastTimeFiredTime + reloadTime)
         {
             rocket = Instantiate(rocketPrefab, spawnPoint.position, transform.rotation);
             Rocket rocketScript = rocket.GetComponent<Rocket>();
             rocketScript.SetCameraTransform(playerCamera);
+            lastTimeFiredTime = Time.time;
+            reloadTime = 4f;
         }
 
         if (Input.GetMouseButtonDown(1))
