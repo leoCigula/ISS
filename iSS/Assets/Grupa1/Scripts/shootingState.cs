@@ -8,8 +8,8 @@ public class shootingState : MonoBehaviour
     [SerializeField] private GameObject rocketPrefab;
     [SerializeField] private Transform playerCamera;
     [SerializeField] private Transform spawnPoint;
-    [SerializeField] private float rocketSpeed = 25;
     private Animator animator;
+    private GameObject rocket=null;
 
     void Start()
     {
@@ -19,10 +19,11 @@ public class shootingState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && rocket==null)
         {
-            var rocket = Instantiate(rocketPrefab, spawnPoint.position, Quaternion.identity);
-            rocket.GetComponent<Rigidbody>().AddForce(playerCamera.forward.normalized * rocketSpeed,ForceMode.Impulse);
+            rocket = Instantiate(rocketPrefab, spawnPoint.position, transform.rotation);
+            Rocket rocketScript = rocket.GetComponent<Rocket>();
+            rocketScript.SetCameraTransform(playerCamera);
         }
 
         if (Input.GetMouseButtonDown(1))
