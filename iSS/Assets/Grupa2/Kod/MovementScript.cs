@@ -16,11 +16,11 @@ public class MovementScript : MonoBehaviour
     void Update()
     {
        
-        if (Input.GetKey(KeyCode.A) && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))) 
+        if (Input.GetKey(KeyCode.J) && (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))) 
         {
             rotationInput = -1f; 
         }
-        else if (Input.GetKey(KeyCode.D) && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))) 
+        else if (Input.GetKey(KeyCode.L) && (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))) 
         {
             rotationInput = 1f; 
         }
@@ -34,11 +34,11 @@ public class MovementScript : MonoBehaviour
     {
         
         float forwardInput = 0f;
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.I))
         {
             forwardInput = 1f; 
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.K))
         {
             forwardInput = -1f; 
         }

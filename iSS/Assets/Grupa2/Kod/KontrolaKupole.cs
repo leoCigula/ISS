@@ -15,11 +15,11 @@ public class KontrolaKupole : MonoBehaviour
         float rotationInput = 0f;
 
         // Rotate based on input
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.O))
         {
             rotationInput = -rotationSpeed * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.P))
         {
             rotationInput = rotationSpeed * Time.deltaTime;
         }
