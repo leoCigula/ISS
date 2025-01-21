@@ -13,6 +13,9 @@ public class shootingState : MonoBehaviour
     private float lastTimeFiredTime = 0f;
     [SerializeField] private float reloadTime = 0f;
 
+    [SerializeField] private ViewRotation fpcScript;
+    [SerializeField] private ViewRotation tpcScript;
+
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -29,6 +32,9 @@ public class shootingState : MonoBehaviour
             rocketScript.SetCameraTransform(playerCamera);
             lastTimeFiredTime = Time.time;
             reloadTime = 4f;
+
+            StartCoroutine(StartRecoil());
+            // animator.Play("gun_fire");
         }
 
         if (Input.GetMouseButtonDown(1))
@@ -39,5 +45,10 @@ public class shootingState : MonoBehaviour
         }
     }
 
-
+    IEnumerator StartRecoil()
+    {
+        animator.Play("gun_fire");
+        yield return new WaitForSeconds(0.6f);
+        animator.CrossFade("gun_aim_idle", 0.2f);
+    }
 }

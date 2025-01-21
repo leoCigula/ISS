@@ -14,6 +14,8 @@ public class movementState : MonoBehaviour
     private Camera FPcamera;
     private Camera TPcamera;
 
+    [SerializeField] private ViewRotation fpcScript;
+    [SerializeField] private ViewRotation tpcScript;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +25,9 @@ public class movementState : MonoBehaviour
         
         FPcamera = GetComponentInChildren<Camera>();
         TPcamera = transform.Find("ThirdPersonCamera").GetComponent<Camera>();
-        Debug.Log(animator.name); 
-        Debug.Log(FPcamera.name);
-        Debug.Log(TPcamera.name);
+
+        TPcamera.enabled = true;
+        FPcamera.enabled = false;
     }
 
     // Update is called once per frame
@@ -74,12 +76,16 @@ public class movementState : MonoBehaviour
         if (enabled)
         {
             TPcamera.enabled = true;
+            tpcScript.enabled = true;
             FPcamera.enabled = false;
+            fpcScript.enabled = false;
         }
         else
         {
             TPcamera.enabled = false;
+            tpcScript.enabled = false;
             FPcamera.enabled = true;
+            fpcScript.enabled = true;
         }
     }
 }
