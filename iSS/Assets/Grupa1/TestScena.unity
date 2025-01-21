@@ -1403,6 +1403,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 567159698}
     - target: {fileID: 2149871954819533233, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+      propertyPath: fpcScript
+      value: 
+      objectReference: {fileID: 2058639346}
+    - target: {fileID: 2149871954819533233, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+      propertyPath: tpcScript
+      value: 
+      objectReference: {fileID: 1052701619}
+    - target: {fileID: 2149871954819533233, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 156305035}
@@ -1495,6 +1503,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2034094088}
     - target: {fileID: 4755469740543269993, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+      propertyPath: FPCamera
+      value: 
+      objectReference: {fileID: 2058639348}
+    - target: {fileID: 4755469740543269993, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+      propertyPath: TPCamera
+      value: 
+      objectReference: {fileID: 1052701617}
+    - target: {fileID: 4755469740543269993, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
       propertyPath: leftShoulder
       value: 
       objectReference: {fileID: 2034094088}
@@ -1507,9 +1523,17 @@ PrefabInstance:
       value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 4850420046438906615, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+      propertyPath: fpcScript
+      value: 
+      objectReference: {fileID: 2058639346}
+    - target: {fileID: 4850420046438906615, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4850420046438906615, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+      propertyPath: tpcScript
+      value: 
+      objectReference: {fileID: 1052701619}
     - target: {fileID: 4850420046438906615, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
       propertyPath: playerSpeed
       value: 30
@@ -1951,6 +1975,22 @@ CanvasRenderer:
 --- !u!4 &2058639345 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3607788730470337992, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+  m_PrefabInstance: {fileID: 1700890559}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2058639346 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4755469740543269993, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+  m_PrefabInstance: {fileID: 1700890559}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf9c32cab99fa2446b4425f85b300719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!20 &2058639348 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 9159866895960886039, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
   m_PrefabInstance: {fileID: 1700890559}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2098476896
