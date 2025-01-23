@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movementState : MonoBehaviour
+public class MovementState : MonoBehaviour
 {
     public MonoBehaviour shootingState;
 
@@ -13,6 +13,8 @@ public class movementState : MonoBehaviour
     private Animator animator;
     private Camera FPcamera;
     private Camera TPcamera;
+
+    private AudioSource walkingSound;
 
     [SerializeField] private ViewRotation fpcScript;
     [SerializeField] private ViewRotation tpcScript;
@@ -25,6 +27,8 @@ public class movementState : MonoBehaviour
         
         FPcamera = GetComponentInChildren<Camera>();
         TPcamera = transform.Find("ThirdPersonCamera").GetComponent<Camera>();
+
+        walkingSound = GetComponent<AudioSource>();
 
         TPcamera.enabled = true;
         FPcamera.enabled = false;
@@ -40,6 +44,11 @@ public class movementState : MonoBehaviour
         Vector3 direction = moveDirForward + moveDirSide;
         if (direction.magnitude > 1)
             direction = direction.normalized;
+
+        if (direction.magnitude > 0 && !walkingSound.isPlaying && !shootingState.enabled)
+            walkingSound.Play();
+        else
+            walkingSound.Stop();
 
         if (Input.GetKeyDown(KeyCode.W))
             animator.SetBool("isWalkingForward", true);
@@ -65,6 +74,7 @@ public class movementState : MonoBehaviour
         {
             shootingState.enabled = true;
             enabled = false;
+            walkingSound.Stop();
             animator.SetBool("isWalkingForward", false);
             animator.SetBool("isWalkingBackward", false);
             animator.SetBool("isWalkingLeft", false);

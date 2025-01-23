@@ -20,7 +20,6 @@ public class Rocket : MonoBehaviour
         if (!collision.gameObject.CompareTag("Player"))
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-
             Destroy(gameObject);
         }
     }

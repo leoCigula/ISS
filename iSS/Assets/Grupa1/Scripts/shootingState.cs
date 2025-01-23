@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class shootingState : MonoBehaviour
+public class ShootingState : MonoBehaviour
 {
     [SerializeField] private MonoBehaviour movementState;
     [SerializeField] private GameObject rocketPrefab;
@@ -16,9 +15,12 @@ public class shootingState : MonoBehaviour
     [SerializeField] private ViewRotation fpcScript;
     [SerializeField] private ViewRotation tpcScript;
 
+    private AudioSource rocketLaunchSound;
+
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        rocketLaunchSound = GetComponentInChildren<AudioSource>();
         lastTimeFiredTime = 0f;
         reloadTime = 0f;
     }
@@ -34,7 +36,7 @@ public class shootingState : MonoBehaviour
             reloadTime = 4f;
 
             StartCoroutine(StartRecoil());
-            // animator.Play("gun_fire");
+            rocketLaunchSound.Play();
         }
 
         if (Input.GetMouseButtonDown(1))

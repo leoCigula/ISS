@@ -8,7 +8,7 @@ public class ViewRotation : MonoBehaviour
 {
 
     public Transform player;
-    public float mouseSensitivity = 2f;
+    public float mouseSensitivity = 1.5f;
     float cameraVerticalRotation = 0f;
     float torsoVerticalRotation = 0f;
     public Transform torso;
