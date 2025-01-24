@@ -42,7 +42,7 @@ public class MovementState : MonoBehaviour
         Vector3 direction = moveDirForward + moveDirSide;
         if (direction.magnitude > 1)
             direction = direction.normalized;
-        Debug.Log(direction.magnitude);
+        
         if (direction.magnitude != 0 && !walkingSound.isPlaying)
         {
             walkingSound.Play();
