@@ -15,12 +15,11 @@ public class ShootingState : MonoBehaviour
     [SerializeField] private ViewRotation fpcScript;
     [SerializeField] private ViewRotation tpcScript;
 
-    private AudioSource rocketLaunchSound;
+    [SerializeField] private AudioSource rocketLaunchSound;
 
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        rocketLaunchSound = GetComponentInChildren<AudioSource>();
         lastTimeFiredTime = 0f;
         reloadTime = 0f;
     }
@@ -36,7 +35,6 @@ public class ShootingState : MonoBehaviour
             reloadTime = 4f;
 
             StartCoroutine(StartRecoil());
-            rocketLaunchSound.Play();
         }
 
         if (Input.GetMouseButtonDown(1))
@@ -46,14 +44,15 @@ public class ShootingState : MonoBehaviour
             animator.SetBool("isAiming", false);
         }
 
-        /*if (Input.GetKeyDown("space"))
-        {
-            GetComponent<deathState>().enabled = true;
-        }*/
+        // if (Input.GetKeyDown("space"))
+        // {
+        //     GetComponent<deathState>().enabled = true;
+        // }
     }
 
     IEnumerator StartRecoil()
     {
+        rocketLaunchSound.Play();
         animator.Play("gun_fire");
         yield return new WaitForSeconds(0.6f);
         animator.CrossFade("gun_aim_idle", 0.2f);

@@ -7,14 +7,12 @@ public class MovementState : MonoBehaviour
     public MonoBehaviour shootingState;
 
     private CharacterController controller;
-    private Vector3 playerVelocity;
-    private bool groundedPlayer;
     [SerializeField] private float playerSpeed = 100.0f;
     private Animator animator;
     private Camera FPcamera;
     private Camera TPcamera;
 
-    private AudioSource walkingSound;
+    public AudioSource walkingSound;
 
     [SerializeField] private ViewRotation fpcScript;
     [SerializeField] private ViewRotation tpcScript;
@@ -44,11 +42,15 @@ public class MovementState : MonoBehaviour
         Vector3 direction = moveDirForward + moveDirSide;
         if (direction.magnitude > 1)
             direction = direction.normalized;
-
-        if (direction.magnitude > 0 && !walkingSound.isPlaying && !shootingState.enabled)
+        Debug.Log(direction.magnitude);
+        if (direction.magnitude != 0 && !walkingSound.isPlaying)
+        {
             walkingSound.Play();
-        else
+        }
+        else if (direction.magnitude == 0 && walkingSound.isPlaying)
+        {
             walkingSound.Stop();
+        }
 
         if (Input.GetKeyDown(KeyCode.W))
             animator.SetBool("isWalkingForward", true);
@@ -99,10 +101,10 @@ public class MovementState : MonoBehaviour
         }
 
 
-        /*if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space"))
         {
             GetComponent<deathState>().enabled = true;
-        } */
+        }
     }
 
     public void setCamera() //za smrt da se postavi Third person kamera i da bude lockana
