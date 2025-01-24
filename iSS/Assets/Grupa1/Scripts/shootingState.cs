@@ -45,6 +45,11 @@ public class ShootingState : MonoBehaviour
             enabled = false;
             animator.SetBool("isAiming", false);
         }
+
+        /*if (Input.GetKeyDown("space"))
+        {
+            GetComponent<deathState>().enabled = true;
+        }*/
     }
 
     IEnumerator StartRecoil()

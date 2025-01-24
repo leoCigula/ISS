@@ -97,5 +97,22 @@ public class MovementState : MonoBehaviour
             FPcamera.enabled = true;
             fpcScript.enabled = true;
         }
+
+
+        /*if (Input.GetKeyDown("space"))
+        {
+            GetComponent<deathState>().enabled = true;
+        } */
     }
+
+    public void setCamera() //za smrt da se postavi Third person kamera i da bude lockana
+    {
+        TPcamera.enabled = true;
+        tpcScript.enabled = true;
+        FPcamera.enabled = false;
+        fpcScript.enabled = false;
+
+        transform.Find("ThirdPersonCamera").GetComponent<ViewRotation>().mouseSensitivity = 0;
+    }
+
 }

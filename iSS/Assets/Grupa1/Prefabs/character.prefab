@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1415739961430261997}
   - component: {fileID: 4850420046438906615}
   - component: {fileID: 2149871954819533233}
+  - component: {fileID: 4179186252464748676}
   m_Layer: 0
   m_Name: character
   m_TagString: Untagged
@@ -76,6 +77,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootingState: {fileID: 2149871954819533233}
   playerSpeed: 100
+  fpcScript: {fileID: 0}
+  tpcScript: {fileID: 0}
 --- !u!114 &2149871954819533233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,6 +96,20 @@ MonoBehaviour:
   playerCamera: {fileID: 3607788730470337992}
   spawnPoint: {fileID: 0}
   reloadTime: 0
+  fpcScript: {fileID: 0}
+  tpcScript: {fileID: 0}
+--- !u!114 &4179186252464748676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3464841357601979582}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50356914f4c05c74da697d0ae3c1ac0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4851559643972864208
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,4 +356,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 3956425820989921893}
   mouseSensitivity: 2
-  leftShoulder: {fileID: 0}
+  torso: {fileID: 0}
+  eyes: {fileID: 0}
