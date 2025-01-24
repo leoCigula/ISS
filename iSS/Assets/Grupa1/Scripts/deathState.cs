@@ -7,6 +7,12 @@ public class deathState : MonoBehaviour
 {
     private bool died = false;
 
+    public GameObject ragdollPrefab;
+
+    public GameObject kapsula;
+
+    public GameObject model;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +28,15 @@ public class deathState : MonoBehaviour
             GetComponent<MovementState>().setCamera();
             GetComponent<MovementState>().enabled = false;
             GetComponent<ShootingState>().enabled = false;
+
+            kapsula.GetComponent<CapsuleCollider>().enabled = false;
+            Destroy(kapsula);
+            model.SetActive(false);
+
+
+            GameObject doll = Instantiate(ragdollPrefab, transform);
+            //doll.transform.parent = gameObject.transform.parent;
+ 
         }
     }
 }

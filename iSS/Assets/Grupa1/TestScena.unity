@@ -402,6 +402,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ch15_SwatSoldier
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e714d491e8846d6428125efee1bc2d7b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5846101305360410260, guid: e714d491e8846d6428125efee1bc2d7b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -420,6 +424,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1442286596}
   m_SourcePrefab: {fileID: 100100000, guid: e714d491e8846d6428125efee1bc2d7b, type: 3}
+--- !u!1 &439953691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6041262826497859685, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+  m_PrefabInstance: {fileID: 1700890559}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &490359596 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1509076710001896654, guid: a909a03ff06f3664f8cb2f20012a3f99, type: 3}
@@ -1621,6 +1630,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4179186252464748676, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+      propertyPath: model
+      value: 
+      objectReference: {fileID: 1442286594}
+    - target: {fileID: 4179186252464748676, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+      propertyPath: kapsula
+      value: 
+      objectReference: {fileID: 439953691}
+    - target: {fileID: 4179186252464748676, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
       propertyPath: movement
       value: 
       objectReference: {fileID: 1407696961}
@@ -1628,6 +1645,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4179186252464748676, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+      propertyPath: ragdollPrefab
+      value: 
+      objectReference: {fileID: 1935385435362731624, guid: ac9ca20a30649664d9a61b0404136f46, type: 3}
     - target: {fileID: 4647526307562849238, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2270,6 +2291,10 @@ PrefabInstance:
     - target: {fileID: 6170405478559429683, guid: 7cb3b19e3d102be47b6291e0eb4ce5ec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8273541578027436068, guid: 7cb3b19e3d102be47b6291e0eb4ce5ec, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
