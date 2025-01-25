@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
     {
         if (isFirstPersonCamera && movementState.enabled)
             FPcamera.fieldOfView = 60;
-        else
-            FPcamera.fieldOfView = 45;
+        //else
+          //  FPcamera.fieldOfView = 45;
     }
 }
