@@ -92,6 +92,8 @@ public class MovementState : MonoBehaviour
             animator.SetBool("isWalkingLeft", false);
             animator.SetBool("isWalkingRight", false);
             animator.SetBool("isAiming", true);
+
+            FPcamera.GetComponent<ViewRotation>().mouseSensitivity = 0.4f;
         }
 
         if (Input.GetKeyDown(KeyCode.Space))

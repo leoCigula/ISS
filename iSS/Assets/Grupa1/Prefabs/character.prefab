@@ -718,10 +718,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ragdollPrefab: {fileID: 1935385435362731624, guid: ac9ca20a30649664d9a61b0404136f46, type: 3}
   rocketLauncherDrop: {fileID: 7651522005248245269, guid: 6456e97287380194da75ad0967e527ab, type: 3}
-  kapsula: {fileID: 0}
+  kapsula: {fileID: 3464841357601979582}
   model: {fileID: 3876414823228258555}
   scream: {fileID: 5999678671894516249}
-  TPCamera: {fileID: 0}
+  TPCamera: {fileID: 522080468165210495}
 --- !u!82 &210432706821762198
 AudioSource:
   m_ObjectHideFlags: 0

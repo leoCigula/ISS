@@ -42,6 +42,8 @@ public class ShootingState : MonoBehaviour
             movementState.enabled = true;
             enabled = false;
             animator.SetBool("isAiming", false);
+
+            fpcScript.mouseSensitivity = 0.67f;
         }
 
         if (Input.GetKeyDown(KeyCode.Space))

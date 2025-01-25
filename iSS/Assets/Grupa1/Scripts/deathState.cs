@@ -36,14 +36,17 @@ public class DeathState : MonoBehaviour
             GetComponent<MovementState>().enabled = false;
             GetComponent<ShootingState>().enabled = false;
 
-            kapsula.GetComponent<CapsuleCollider>().enabled = false;
-            Destroy(kapsula);
+            //kapsula.GetComponent<CapsuleCollider>().enabled = false;
+            //Destroy(kapsula);
+
+            kapsula.GetComponent<CharacterController>().enabled = false;
+
             model.SetActive(false);
 
 
             GameObject doll = Instantiate(ragdollPrefab, transform);
             bodyPosition = doll.transform.Find(headPositionPath);
-            Debug.Log(bodyPosition);
+            //Debug.Log(bodyPosition);
             GameObject launcher = Instantiate(rocketLauncherDrop, transform);
 
             scream.Play();
