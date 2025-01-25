@@ -36,8 +36,8 @@ public class MovementState : MonoBehaviour
     void Update()
     {
 
-        Vector3 moveDirForward = transform.forward * Input.GetAxis("Vertical");
-        Vector3 moveDirSide = transform.right * Input.GetAxis("Horizontal");
+        Vector3 moveDirForward = transform.forward * Input.GetAxis("vertikalno");
+        Vector3 moveDirSide = transform.right * Input.GetAxis("horizontalno");
 
         Vector3 direction = moveDirForward + moveDirSide;
         if (direction.magnitude > 1)
@@ -52,21 +52,29 @@ public class MovementState : MonoBehaviour
             walkingSound.Stop();
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+        //if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
             animator.SetBool("isWalkingForward", true);
-        if (Input.GetKeyUp(KeyCode.W))
+        //if (Input.GetKeyUp(KeyCode.W))
+        if (Input.GetKeyUp(KeyCode.UpArrow))
             animator.SetBool("isWalkingForward", false);
-        if (Input.GetKeyDown(KeyCode.S))
+        //if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
             animator.SetBool("isWalkingBackward", true);
-        if (Input.GetKeyUp(KeyCode.S))
+        //if (Input.GetKeyUp(KeyCode.S))
+        if (Input.GetKeyUp(KeyCode.DownArrow))
             animator.SetBool("isWalkingBackward", false);
-        if (Input.GetKeyDown(KeyCode.A))
+        //if (Input.GetKeyDown(KeyCode.A))
+          if (Input.GetKeyDown(KeyCode.LeftArrow))
             animator.SetBool("isWalkingLeft", true);
-        if (Input.GetKeyUp(KeyCode.A))
+        //if (Input.GetKeyUp(KeyCode.A))
+        if (Input.GetKeyUp(KeyCode.LeftArrow))
             animator.SetBool("isWalkingLeft", false);
-        if (Input.GetKeyDown(KeyCode.D))
+        //if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
             animator.SetBool("isWalkingRight", true);
-        if (Input.GetKeyUp(KeyCode.D))
+        //if (Input.GetKeyUp(KeyCode.D))
+        if (Input.GetKeyUp(KeyCode.RightArrow))
             animator.SetBool("isWalkingRight", false);
 
         controller.SimpleMove(direction * playerSpeed);
@@ -115,6 +123,7 @@ public class MovementState : MonoBehaviour
         fpcScript.enabled = false;
 
         transform.Find("ThirdPersonCamera").GetComponent<ViewRotation>().mouseSensitivity = 0;
+        walkingSound.Stop();
     }
 
 }

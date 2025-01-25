@@ -9,9 +9,13 @@ public class deathState : MonoBehaviour
 
     public GameObject ragdollPrefab;
 
+    public GameObject rocketLauncherDrop;
+
     public GameObject kapsula;
 
     public GameObject model;
+
+    public AudioSource scream;
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +39,11 @@ public class deathState : MonoBehaviour
 
 
             GameObject doll = Instantiate(ragdollPrefab, transform);
+            GameObject launcher = Instantiate(rocketLauncherDrop, transform);
+
+            scream.Play();
             //doll.transform.parent = gameObject.transform.parent;
- 
+
         }
     }
 }
