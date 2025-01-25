@@ -5,11 +5,13 @@ using UnityEngine;
 public class ZoomInOut : MonoBehaviour
 {
     private Camera myCamera;
-    private float[] zoomLevels = { 5f, 10f, 15f, 25f };
+    private float[] zoomLevels = { 25f, 15f, 10f, 5f };
+    private int currentIndex;
     private float targetFOV;
 
     private void Start()
     {
+        currentIndex = 0;
         myCamera = GetComponent<Camera>();
         myCamera.fieldOfView = 25;
         targetFOV = myCamera.fieldOfView;
@@ -21,13 +23,15 @@ public class ZoomInOut : MonoBehaviour
 
         if (scrollInput != 0f)
         {
-            if (scrollInput < 0f)
+            if (scrollInput > 0f)
             {
-                targetFOV = Mathf.Min(targetFOV + 5, zoomLevels[3]);
+                currentIndex = Mathf.Min(currentIndex+1, zoomLevels.Length-1);
+                targetFOV = zoomLevels[currentIndex];
             }
-            else if (scrollInput > 0f)
+            else if (scrollInput < 0f)
             {
-                targetFOV = Mathf.Max(targetFOV - 5, zoomLevels[0]);
+                currentIndex = Mathf.Max(currentIndex-1, 0);
+                targetFOV = zoomLevels[currentIndex];
             }
 
         }
