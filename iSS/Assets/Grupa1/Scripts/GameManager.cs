@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     private void SwitchViewState()
     {
         // TPcamera.enabled = movementState.enabled | deathState.enabled;
-        tpcScript.enabled = !isFirstPersonCamera;
+        tpcScript.enabled = !deathState.enabled && !isFirstPersonCamera && !shootingState.enabled;
         TPcamera.enabled = deathState.enabled || !isFirstPersonCamera;
         FPcamera.enabled = shootingState.enabled | (movementState.enabled && isFirstPersonCamera);
         fpcScript.enabled = shootingState.enabled | (movementState.enabled && isFirstPersonCamera);
