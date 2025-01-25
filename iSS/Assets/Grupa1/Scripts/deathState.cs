@@ -9,6 +9,8 @@ public class deathState : MonoBehaviour
 
     public GameObject ragdollPrefab;
 
+    public GameObject rocketLauncherDrop;
+
     public GameObject kapsula;
 
     public GameObject model;
@@ -35,6 +37,7 @@ public class deathState : MonoBehaviour
 
 
             GameObject doll = Instantiate(ragdollPrefab, transform);
+            GameObject launcher = Instantiate(rocketLauncherDrop, transform);
             //doll.transform.parent = gameObject.transform.parent;
  
         }

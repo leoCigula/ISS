@@ -32,7 +32,7 @@ public class ShootingState : MonoBehaviour
             Rocket rocketScript = rocket.GetComponent<Rocket>();
             rocketScript.SetCameraTransform(playerCamera);
             lastTimeFiredTime = Time.time;
-            reloadTime = 4f;
+            reloadTime = 3f;
 
             StartCoroutine(StartRecoil());
         }

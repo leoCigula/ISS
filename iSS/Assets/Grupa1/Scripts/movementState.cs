@@ -115,6 +115,7 @@ public class MovementState : MonoBehaviour
         fpcScript.enabled = false;
 
         transform.Find("ThirdPersonCamera").GetComponent<ViewRotation>().mouseSensitivity = 0;
+        walkingSound.Stop();
     }
 
 }
