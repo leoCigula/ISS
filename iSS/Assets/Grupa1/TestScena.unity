@@ -480,6 +480,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 495244230345366270, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2194260122130284000, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3464841357601979582, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
       propertyPath: m_Name
       value: character
@@ -522,6 +530,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3956425820989921893, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991512615317767064, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6167021144346272706, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880844915550171337, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
