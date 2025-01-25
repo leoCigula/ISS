@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Camera TPcamera;
     [SerializeField] private ViewRotation fpcScript;
     [SerializeField] private ViewRotation tpcScript;
+
+    private bool isFirstPersonCamera = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,14 +60,31 @@ public class GameManager : MonoBehaviour
 
             SwitchViewState();
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            isFirstPersonCamera = !isFirstPersonCamera;
+        }
+
+        ChangeFPCamFOV();
     }
 
     // Mijenja stanje i kameru kojom se upravlja
     private void SwitchViewState()
     {
-        TPcamera.enabled = movementState.enabled | deathState.enabled;
-        tpcScript.enabled = movementState.enabled;
-        FPcamera.enabled = shootingState.enabled;
-        fpcScript.enabled = shootingState.enabled;
+        // TPcamera.enabled = movementState.enabled | deathState.enabled;
+        tpcScript.enabled = !isFirstPersonCamera;
+        TPcamera.enabled = deathState.enabled || !isFirstPersonCamera;
+        FPcamera.enabled = shootingState.enabled | (movementState.enabled && isFirstPersonCamera);
+        fpcScript.enabled = shootingState.enabled | (movementState.enabled && isFirstPersonCamera);
+    }
+
+    // Mijenja FOV kamere za First person perspektivu
+    private void ChangeFPCamFOV()
+    {
+        if (isFirstPersonCamera && movementState.enabled)
+            FPcamera.fieldOfView = 60;
+        else
+            FPcamera.fieldOfView = 45;
     }
 }
