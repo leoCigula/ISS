@@ -12,7 +12,7 @@ public class MovementState : MonoBehaviour
     private Camera FPcamera;
     private Camera TPcamera;
 
-    public AudioSource walkingSound;
+    private AudioSource walkingSound;
 
     [SerializeField] private ViewRotation fpcScript;
     [SerializeField] private ViewRotation tpcScript;
