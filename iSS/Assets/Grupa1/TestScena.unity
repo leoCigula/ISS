@@ -1594,7 +1594,7 @@ GameObject:
   - component: {fileID: 1615299393}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Tank
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2446,7 +2446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5485843363522520902, guid: 7cb3b19e3d102be47b6291e0eb4ce5ec, type: 3}
       propertyPath: m_TagString
-      value: Tank
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6170405478559429683, guid: 7cb3b19e3d102be47b6291e0eb4ce5ec, type: 3}
       propertyPath: m_LocalPosition.x

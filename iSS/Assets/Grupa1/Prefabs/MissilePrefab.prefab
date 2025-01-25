@@ -355,7 +355,7 @@ MonoBehaviour:
   rotateSpeed: 1000
   tankExplosionPrefab: {fileID: 8174891885877789592, guid: 808ef05de9707944aa9f01d1bd55005b, type: 3}
   terrainExplosionPrefab: {fileID: 8174891885877789592, guid: f2e9421e9367bb64fbe5dd4f45d96d14, type: 3}
-  waterExplosionPrefab: {fileID: 8174891885877789592, guid: f2e9421e9367bb64fbe5dd4f45d96d14, type: 3}
+  waterExplosionPrefab: {fileID: 8174891885877789592, guid: 03c5e54f161b60b4aab1fe577677c214, type: 3}
 --- !u!82 &6445812552254393498
 AudioSource:
   m_ObjectHideFlags: 0
@@ -363,7 +363,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3870485554334972512}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
