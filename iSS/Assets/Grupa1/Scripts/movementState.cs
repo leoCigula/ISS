@@ -22,7 +22,7 @@ public class MovementState : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
-        
+
         FPcamera = GetComponentInChildren<Camera>();
         TPcamera = transform.Find("ThirdPersonCamera").GetComponent<Camera>();
 
@@ -35,24 +35,29 @@ public class MovementState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 direction = HandleMovementInputs();
 
+        controller.SimpleMove(direction * playerSpeed);
+
+        HandleMovementStateInputs();
+        HandleMovementSounds(direction);
+    }
+    
+    // Upravlja kretanjem
+    private Vector3 HandleMovementInputs()
+    {
         Vector3 moveDirForward = transform.forward * Input.GetAxis("vertikalno");
         Vector3 moveDirSide = transform.right * Input.GetAxis("horizontalno");
 
         Vector3 direction = moveDirForward + moveDirSide;
         if (direction.magnitude > 1)
             direction = direction.normalized;
-        
-        if (direction.magnitude != 0 && !walkingSound.isPlaying)
-        {
-            walkingSound.Play();
-        }
-        else if (direction.magnitude == 0 && walkingSound.isPlaying)
-        {
-            walkingSound.Stop();
-        }
+        return direction;
+    }
 
-        //if (Input.GetKeyDown(KeyCode.W))
+    // Upravlja animacijama i promjenama stanja
+    private void HandleMovementStateInputs()
+    {
         if (Input.GetKeyDown(KeyCode.UpArrow))
             animator.SetBool("isWalkingForward", true);
         //if (Input.GetKeyUp(KeyCode.W))
@@ -77,9 +82,6 @@ public class MovementState : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.RightArrow))
             animator.SetBool("isWalkingRight", false);
 
-        controller.SimpleMove(direction * playerSpeed);
-
-
         if (Input.GetMouseButtonDown(1))
         {
             shootingState.enabled = true;
@@ -92,38 +94,19 @@ public class MovementState : MonoBehaviour
             animator.SetBool("isAiming", true);
         }
 
-        // Mijenja kameru ovisno o stanju u kojem se nalazi
-        if (enabled)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            TPcamera.enabled = true;
-            tpcScript.enabled = true;
-            FPcamera.enabled = false;
-            fpcScript.enabled = false;
-        }
-        else
-        {
-            TPcamera.enabled = false;
-            tpcScript.enabled = false;
-            FPcamera.enabled = true;
-            fpcScript.enabled = true;
-        }
-
-
-        if (Input.GetKeyDown("space"))
-        {
-            GetComponent<deathState>().enabled = true;
+            GetComponent<DeathState>().enabled = true;
+            enabled = false;
         }
     }
 
-    public void setCamera() //za smrt da se postavi Third person kamera i da bude lockana
+    // Upravlja zvukovima hodanja
+    private void HandleMovementSounds(Vector3 direction)
     {
-        TPcamera.enabled = true;
-        tpcScript.enabled = true;
-        FPcamera.enabled = false;
-        fpcScript.enabled = false;
-
-        transform.Find("ThirdPersonCamera").GetComponent<ViewRotation>().mouseSensitivity = 0;
-        walkingSound.Stop();
+        if (direction.magnitude != 0 && !walkingSound.isPlaying && enabled)
+            walkingSound.Play();
+        else if ((direction.magnitude == 0 && walkingSound.isPlaying) || !enabled)
+            walkingSound.Stop();
     }
-
 }

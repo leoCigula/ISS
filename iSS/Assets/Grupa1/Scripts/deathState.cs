@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class deathState : MonoBehaviour
+public class DeathState : MonoBehaviour
 {
     private bool died = false;
 
@@ -16,6 +16,10 @@ public class deathState : MonoBehaviour
     public GameObject model;
 
     public AudioSource scream;
+    private Transform bodyPosition;
+    private string headPositionPath = "Ch15_SwatSoldier/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:Neck/mixamorig:Head";
+
+    [SerializeField] private Camera TPCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +33,6 @@ public class deathState : MonoBehaviour
         if (died == false)
         {
             died = true;
-            GetComponent<MovementState>().setCamera();
             GetComponent<MovementState>().enabled = false;
             GetComponent<ShootingState>().enabled = false;
 
@@ -39,11 +42,13 @@ public class deathState : MonoBehaviour
 
 
             GameObject doll = Instantiate(ragdollPrefab, transform);
+            bodyPosition = doll.transform.Find(headPositionPath);
+            Debug.Log(bodyPosition);
             GameObject launcher = Instantiate(rocketLauncherDrop, transform);
 
             scream.Play();
             //doll.transform.parent = gameObject.transform.parent;
-
         }
+        TPCamera.transform.LookAt(bodyPosition);
     }
 }

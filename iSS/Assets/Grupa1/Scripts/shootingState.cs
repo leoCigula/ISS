@@ -44,10 +44,11 @@ public class ShootingState : MonoBehaviour
             animator.SetBool("isAiming", false);
         }
 
-        // if (Input.GetKeyDown("space"))
-        // {
-        //     GetComponent<deathState>().enabled = true;
-        // }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GetComponent<DeathState>().enabled = true;
+            enabled = false;
+        }
     }
 
     IEnumerator StartRecoil()

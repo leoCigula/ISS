@@ -47,8 +47,6 @@ public class ViewRotation : MonoBehaviour
 
     void LateUpdate()
     {
-        // if(FPCamera.enabled){
         torso.localEulerAngles += new Vector3(1f, 0, 0) * torsoVerticalRotation;
-        // }
     }
 }

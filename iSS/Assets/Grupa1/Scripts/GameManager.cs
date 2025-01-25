@@ -5,10 +5,16 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private GameObject player;
-    private MovementState movementState;
     private CharacterController cc;
+    private MovementState movementState;
     private ShootingState shootingState;
+    private DeathState deathState;
     [SerializeField] private GameObject aimCanvas;
+
+    [SerializeField] private Camera FPcamera;
+    [SerializeField] private Camera TPcamera;
+    [SerializeField] private ViewRotation fpcScript;
+    [SerializeField] private ViewRotation tpcScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +25,9 @@ public class GameManager : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player");
             movementState = player.GetComponent<MovementState>();
             shootingState = player.GetComponent<ShootingState>();
+            deathState = player.GetComponent<DeathState>();
             cc = player.GetComponent<CharacterController>();
+            Debug.Log(cc.name);
         }
     }
 
@@ -29,14 +37,35 @@ public class GameManager : MonoBehaviour
         if (shootingState.enabled)
         {
             aimCanvas.SetActive(true);
+
             cc.height = 12;
             cc.center = new Vector3(cc.center.x, -10, cc.center.z);
+
+            SwitchViewState();
         }
-        else
+        else if (movementState.enabled)
         {
             aimCanvas.SetActive(false);
+
             cc.height = 16.9f;
             cc.center = new Vector3(cc.center.x, -7.37f, cc.center.z);
+
+            SwitchViewState();
         }
+        else if (deathState.enabled)
+        {
+            aimCanvas.SetActive(false);
+
+            SwitchViewState();
+        }
+    }
+
+    // Mijenja stanje i kameru kojom se upravlja
+    private void SwitchViewState()
+    {
+        TPcamera.enabled = movementState.enabled | deathState.enabled;
+        tpcScript.enabled = movementState.enabled;
+        FPcamera.enabled = shootingState.enabled;
+        fpcScript.enabled = shootingState.enabled;
     }
 }
