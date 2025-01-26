@@ -8,8 +8,12 @@ public class Rocket : MonoBehaviour
     private Transform cameraTransform;
     private Rigidbody rb;
     private Vector3 spawnPoint;
-    [SerializeField] private float movementSpeed = 25;
+    [SerializeField] private float movementSpeed = 80f;
+    [SerializeField] private float maxSpeed = 186f;
+    [SerializeField] private float acceleration = 15f;
+    [SerializeField] private float drag = 0.1f;
     [SerializeField] private float rotateSpeed = 5;
+    [SerializeField] private float rotationDeviation = 0.02f;
     [SerializeField] private ParticleSystem tankExplosionPrefab;
     [SerializeField] private ParticleSystem terrainExplosionPrefab;
     [SerializeField] private ParticleSystem waterExplosionPrefab;
@@ -46,12 +50,12 @@ public class Rocket : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        UpdateSpeed();
         rb.velocity = transform.forward * movementSpeed;
 
         RotateMissile();
 
-        if(Vector3.Distance(transform.position, spawnPoint) > 1500f)
+        if(Vector3.Distance(transform.position, spawnPoint) > 3000f)
         {
             Destroy(gameObject);
         }
@@ -64,6 +68,19 @@ public class Rocket : MonoBehaviour
         var rotation = Quaternion.LookRotation(direction);
         rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, rotation, rotateSpeed * Time.fixedDeltaTime));
 
+    }
+
+    private void UpdateSpeed()
+    {
+        if(movementSpeed < maxSpeed)
+        {
+            movementSpeed += acceleration * Time.fixedDeltaTime;
+        }
+        else
+        {
+            var temp = movementSpeed - drag * Time.fixedDeltaTime;
+            movementSpeed = Mathf.Max(temp, 0);
+        }
     }
 
     public void SetCameraTransform(Transform camera)

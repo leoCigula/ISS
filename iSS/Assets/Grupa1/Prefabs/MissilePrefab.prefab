@@ -351,8 +351,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d06ab1d309254a47aa596df9e601074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 186
-  rotateSpeed: 1000
+  movementSpeed: 50
+  maxSpeed: 200
+  acceleration: 80
+  drag: 0.1
+  rotateSpeed: 500
+  rotationDeviation: 0.05
   tankExplosionPrefab: {fileID: 8174891885877789592, guid: 808ef05de9707944aa9f01d1bd55005b, type: 3}
   terrainExplosionPrefab: {fileID: 8174891885877789592, guid: f2e9421e9367bb64fbe5dd4f45d96d14, type: 3}
   waterExplosionPrefab: {fileID: 8174891885877789592, guid: 03c5e54f161b60b4aab1fe577677c214, type: 3}
