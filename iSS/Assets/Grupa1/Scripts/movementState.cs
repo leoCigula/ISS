@@ -46,8 +46,8 @@ public class MovementState : MonoBehaviour
     // Upravlja kretanjem
     private Vector3 HandleMovementInputs()
     {
-        Vector3 moveDirForward = transform.forward * Input.GetAxis("vertikalno");
-        Vector3 moveDirSide = transform.right * Input.GetAxis("horizontalno");
+        Vector3 moveDirForward = transform.forward * Input.GetAxis("Vertical");
+        Vector3 moveDirSide = transform.right * Input.GetAxis("Horizontal");
 
         Vector3 direction = moveDirForward + moveDirSide;
         if (direction.magnitude > 1)
