@@ -28,6 +28,6 @@ public class KontrolaKupole : MonoBehaviour
         currentRotation = Mathf.Clamp(currentRotation, minAngle, maxAngle);
 
        
-        transform.localEulerAngles = new Vector3(0f, currentRotation, 0f);
+        transform.localEulerAngles = new Vector3(0f, currentRotation, 90f);
     }
 }
