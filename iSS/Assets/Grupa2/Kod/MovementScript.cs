@@ -22,7 +22,7 @@ public class MovementScript : MonoBehaviour
         currentVelocity = rigidBody.velocity;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollision(Collision collision)
     {
         GameObject objectC = collision.gameObject;
         if(objectC.layer == 3)
