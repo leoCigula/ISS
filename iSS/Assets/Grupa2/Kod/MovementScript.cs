@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class MovementScript : MonoBehaviour
 {
-    public Rigidbody rigidBody;       
+
+    public Rigidbody rigidBody;
+    public BoxCollider myCollider;
+    public TerrainCollider terainColider;
     public float moveSpeed = 5f;      
     public float rotateSpeed = 10f;  
     public float accelerationRate = 5f;  
     public float decelerationRate = 5f;  
 
     private Vector3 currentVelocity;  
-    private float rotationInput = 0f; 
+    private float rotationInput = 0f;
+    private bool collisionCheck = false;
 
+    private void Start()
+    {
+        currentVelocity = rigidBody.velocity;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        GameObject objectC = collision.gameObject;
+        if(objectC.layer == 3)
+        {
+            collisionCheck = true;
+        }
+
+    }
     void Update()
     {
        
@@ -32,49 +50,54 @@ public class MovementScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        
-        float forwardInput = 0f;
-        if (Input.GetKey(KeyCode.I))
+        if (collisionCheck)
         {
-            forwardInput = 1f; 
-        }
-        else if (Input.GetKey(KeyCode.K))
-        {
-            forwardInput = -1f; 
-        }
+            float forwardInput = 0f;
+            if (Input.GetKey(KeyCode.I))
+            {
+                forwardInput = 1f; 
+            }
+            else if (Input.GetKey(KeyCode.K))
+            {
+                forwardInput = -1f; 
+            }
 
         
-        Vector3 targetVelocity = transform.forward * forwardInput * moveSpeed;
-
+            float targetVelocity = forwardInput * moveSpeed; //z os
+            print(targetVelocity);
         
-        if (forwardInput != 0)
-        {
-           
-            currentVelocity = Vector3.MoveTowards(
-                currentVelocity,
-                targetVelocity,
-                accelerationRate * Time.fixedDeltaTime
-            );
-        }
-        else
-        {
+            if (forwardInput != 0)
+            {
+
+                currentVelocity = Vector3.MoveTowards(
+                    currentVelocity,
+                    new Vector3(currentVelocity.x, currentVelocity.y, targetVelocity),
+                    accelerationRate * Time.fixedDeltaTime
+                );
+            }
+            else
+            {
             
-            currentVelocity = Vector3.MoveTowards(
-                currentVelocity,
-                Vector3.zero,
-                decelerationRate * Time.fixedDeltaTime
-            );
-        }
+                currentVelocity = Vector3.MoveTowards(
+                    currentVelocity,
+                    new Vector3(currentVelocity.x, currentVelocity.y, 0),
+                    decelerationRate * Time.fixedDeltaTime
+                );
+            }
 
-        
-        rigidBody.velocity = currentVelocity;
+
+            rigidBody.velocity = currentVelocity;
 
        
-        if (rotationInput != 0f)
-        {
+            if (rotationInput != 0f)
+            {
             
-            float rotationAmount = rotationInput * rotateSpeed * Time.fixedDeltaTime;
-            transform.Rotate(0f, rotationAmount, 0f);
+                float rotationAmount = rotationInput * rotateSpeed * Time.fixedDeltaTime;
+                transform.Rotate(0f, rotationAmount, 0f);
+            }
+
+            collisionCheck = false;
         }
     }
+    
 }
