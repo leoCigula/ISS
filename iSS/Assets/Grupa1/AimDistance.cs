@@ -17,7 +17,8 @@ public class AimDistance : MonoBehaviour
 
             Debug.Log($"Hit object: {hit.collider.gameObject.name}");
             float distance = Vector3.Distance(scopeCamera.transform.position, hit.point);
-            distanceText.text = $"Distance: {distance:F1} m";
+            Debug.Log(hit.point);
+            distanceText.text = $"{distance:F1} m";
             distanceText.color = Color.green;
 
             Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.green);
