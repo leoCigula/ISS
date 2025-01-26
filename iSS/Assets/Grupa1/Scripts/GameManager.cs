@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
     // Mijenja FOV kamere za First person perspektivu
     private void ChangeFPCamFOV()
     {
-        if (isFirstPersonCamera && movementState.enabled)
+        if (isFirstPersonCamera && movementState.enabled && !shootingState.enabled)
             FPcamera.fieldOfView = 60;
         //else
           //  FPcamera.fieldOfView = 45;
