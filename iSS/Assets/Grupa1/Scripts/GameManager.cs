@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ViewRotation fpcScript;
     [SerializeField] private ViewRotation tpcScript;
 
+    [SerializeField] private ZoomInOut zoomInOutScript;
+
     private bool isFirstPersonCamera = true;
     // Start is called before the first frame update
     void Start()
@@ -43,6 +45,8 @@ public class GameManager : MonoBehaviour
             cc.height = 12;
             cc.center = new Vector3(cc.center.x, -10, cc.center.z);
 
+            zoomInOutScript.enabled = true;
+
             SwitchViewState();
         }
         else if (movementState.enabled)
@@ -51,6 +55,8 @@ public class GameManager : MonoBehaviour
 
             cc.height = 16.9f;
             cc.center = new Vector3(cc.center.x, -7.37f, cc.center.z);
+
+            zoomInOutScript.enabled = false;
 
             SwitchViewState();
         }

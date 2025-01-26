@@ -32,9 +32,7 @@ public class ViewRotation : MonoBehaviour
         {
             torsoVerticalRotation -= inputY;
             torsoVerticalRotation = Mathf.Clamp(torsoVerticalRotation, -65f, 20f);
-            // if (transform.localPosition != new Vector3(0f, -1.5f + eyes.transform.localPosition.y, 0.69f)){
-                transform.localPosition = new Vector3(0f, eyes.transform.position.y - 17, 0.69f);
-            // }
+            transform.localPosition = new Vector3(0f, eyes.transform.position.y - 17, 0.69f);
             cameraVerticalRotation -= inputY;
             cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -65f, 20f);
             transform.localEulerAngles = Vector3.right * cameraVerticalRotation;

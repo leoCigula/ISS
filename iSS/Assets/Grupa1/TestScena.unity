@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028346, g: 0.22571373, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -339,6 +339,7 @@ MonoBehaviour:
   TPcamera: {fileID: 1052701617}
   fpcScript: {fileID: 2058639346}
   tpcScript: {fileID: 1052701619}
+  zoomInOutScript: {fileID: 2058639351}
 --- !u!20 &1052701617 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 522080468165210495, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
