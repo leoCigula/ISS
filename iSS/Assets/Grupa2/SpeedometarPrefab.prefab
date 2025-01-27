@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7e53859e1cc2b41a976a861611c3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 8112747127385493372, guid: fefc87812dd8f8e418f6cb052e56e0a2, type: 3}
   maxSpeed: 60
   minSpeedArrowAngle: 12
   maxSpeedArrowAngle: -30

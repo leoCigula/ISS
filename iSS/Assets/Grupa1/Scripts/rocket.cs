@@ -13,7 +13,6 @@ public class Rocket : MonoBehaviour
     [SerializeField] private float acceleration = 15f;
     [SerializeField] private float drag = 0.1f;
     [SerializeField] private float rotateSpeed = 5;
-    [SerializeField] private float rotationDeviation = 0.02f;
     [SerializeField] private ParticleSystem tankExplosionPrefab;
     [SerializeField] private ParticleSystem terrainExplosionPrefab;
     [SerializeField] private ParticleSystem waterExplosionPrefab;

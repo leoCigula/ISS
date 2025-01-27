@@ -11,7 +11,8 @@ public class MovementScript : MonoBehaviour
     public float moveSpeed = 5f;      
     public float rotateSpeed = 10f;  
     public float accelerationRate = 5f;  
-    public float decelerationRate = 5f;  
+    public float decelerationRate = 5f;
+    public float maxSpeed = 100f;
 
     private Vector3 currentVelocity;  
     private float rotationInput = 0f;
@@ -22,23 +23,15 @@ public class MovementScript : MonoBehaviour
         currentVelocity = rigidBody.velocity;
     }
 
-    private void OnCollision(Collision collision)
-    {
-        GameObject objectC = collision.gameObject;
-        if(objectC.layer == 3)
-        {
-            collisionCheck = true;
-        }
-
-    }
+  
     void Update()
     {
        
-        if (Input.GetKey(KeyCode.J) && (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))) 
+        if (Input.GetKey(KeyCode.J)) //&& (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))
         {
             rotationInput = -1f; 
         }
-        else if (Input.GetKey(KeyCode.L) && (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))) 
+        else if (Input.GetKey(KeyCode.L)) 
         {
             rotationInput = 1f; 
         }
@@ -46,12 +39,54 @@ public class MovementScript : MonoBehaviour
         {
             rotationInput = 0f; 
         }
+
+        if (rigidBody.velocity.magnitude > maxSpeed)
+        {
+            rigidBody.velocity= Vector3.ClampMagnitude(rigidBody.velocity, maxSpeed);
+        }
     }
 
     void FixedUpdate()
-    {
-        if (collisionCheck)
+    {   
+        float forwardInput = 0f;
+        if (Input.GetKey(KeyCode.I))
         {
+            forwardInput = 1f;
+        }
+        else if (Input.GetKey(KeyCode.K))
+        {
+            forwardInput = -1f;
+        }
+
+
+
+
+        if (forwardInput != 0)
+        {
+
+            rigidBody.AddForce(moveSpeed * transform.forward* 50 * forwardInput * Time.fixedDeltaTime);
+            print(rigidBody.velocity);
+        }
+
+        
+
+
+        if (rotationInput != 0f)
+        {
+
+            float rotationAmount = rotationInput * rotateSpeed * Time.fixedDeltaTime;
+            transform.Rotate(0f, rotationAmount, 0f);
+        }
+
+
+
+
+
+
+
+        //if (collisionCheck)
+        //{
+        /*
             float forwardInput = 0f;
             if (Input.GetKey(KeyCode.I))
             {
@@ -97,7 +132,9 @@ public class MovementScript : MonoBehaviour
             }
 
             collisionCheck = false;
-        }
+        //}
+        */
     }
-    
+
+
 }

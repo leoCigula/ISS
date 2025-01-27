@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Pucanje : MonoBehaviour
 {
-     public Rigidbody Shell; // The shell prefab
-    public Transform FireStart; // The point where the shell is fired from
-    public float shellLifeTime = 5.0f; // Time before the shell is destroyed
-    public float shellSpeed = 40.0f; // Speed of the shell
-    public GameObject explosionEffectPrefab; // Explosion particle effect prefab
+     public Rigidbody Shell; 
+    public Transform FireStart; 
+    public float shellLifeTime = 5.0f; 
+    public float shellSpeed = 40.0f; 
+    public GameObject explosionEffectPrefab; 
 
     private Transform cannon;
 
@@ -25,10 +25,10 @@ public class Pucanje : MonoBehaviour
          newShell.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
 
-        // Add collision handling for the shell
+       
         var shellHandler = newShell.gameObject.AddComponent<ShellCollisionHandler>();
-        shellHandler.explosionEffectPrefab = explosionEffectPrefab; // Pass the explosion effect prefab
-        //Destroy(newShell.gameObject, shellLifeTime); // Destroy shell after it expires
+        shellHandler.explosionEffectPrefab = explosionEffectPrefab; 
+        //Destroy(newShell.gameObject, shellLifeTime); 
     }
 
     void Update()
@@ -43,20 +43,19 @@ public class Pucanje : MonoBehaviour
 
 public class ShellCollisionHandler : MonoBehaviour
 {
-    public GameObject explosionEffectPrefab; // Explosion particle effect prefab
+    public GameObject explosionEffectPrefab; 
 
     void OnCollisionEnter(Collision collision)
     {
-        // Instantiate the explosion effect at the point of collision
+        
         if (explosionEffectPrefab != null)
         {
             GameObject explosion = Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
 
-            // Destroy the explosion effect after it has played for its duration
-            Destroy(explosion, 2.0f); // Adjust the time according to the duration of your explosion effect
+            Destroy(explosion, 2.0f); 
         }
 
-        // Destroy the shell upon collision
+        
         Destroy(gameObject);
     }
 }
