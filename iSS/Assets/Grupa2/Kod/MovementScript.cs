@@ -48,6 +48,7 @@ public class MovementScript : MonoBehaviour
 
     void FixedUpdate()
     {   
+        
         float forwardInput = 0f;
         if (Input.GetKey(KeyCode.I))
         {
