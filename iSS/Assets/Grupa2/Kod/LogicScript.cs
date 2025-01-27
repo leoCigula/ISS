@@ -9,6 +9,7 @@ public class LogicScript : MonoBehaviour
     public GameObject gameOverScreen;
     public void RestartGame()
     {
+        print("pressed restart");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
