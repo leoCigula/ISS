@@ -6,7 +6,7 @@ public class MovementScript : MonoBehaviour
 {
 
     public Rigidbody rigidBody;
-    public BoxCollider myCollider;
+    public GusjenicaScript gusjenica1;
     public TerrainCollider terainColider;
     public float moveSpeed = 5f;      
     public float rotateSpeed = 10f;  
@@ -16,33 +16,40 @@ public class MovementScript : MonoBehaviour
 
     private Vector3 currentVelocity;  
     private float rotationInput = 0f;
-    private bool collisionCheck = false;
+    private bool m_IsOnGround;
 
     private void Start()
     {
         currentVelocity = rigidBody.velocity;
     }
 
+
+
   
     void Update()
     {
-       
-        if (Input.GetKey(KeyCode.J)) //&& (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))
-        {
-            rotationInput = -1f; 
-        }
-        else if (Input.GetKey(KeyCode.L)) 
-        {
-            rotationInput = 1f; 
-        }
-        else
-        {
-            rotationInput = 0f; 
-        }
 
-        if (rigidBody.velocity.magnitude > maxSpeed)
+        if (true)
         {
-            rigidBody.velocity= Vector3.ClampMagnitude(rigidBody.velocity, maxSpeed);
+       
+            if (Input.GetKey(KeyCode.J)) //&& (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))
+            {
+                rotationInput = -1f; 
+            }
+            else if (Input.GetKey(KeyCode.L)) 
+            {
+                rotationInput = 1f; 
+            }
+            else
+            {
+                rotationInput = 0f; 
+            }
+
+            if (rigidBody.velocity.magnitude > maxSpeed)
+            {
+                rigidBody.velocity= Vector3.ClampMagnitude(rigidBody.velocity, maxSpeed);
+            }
+
         }
     }
 

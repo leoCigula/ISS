@@ -281,7 +281,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2916432311499593107}
@@ -356,7 +356,6 @@ MonoBehaviour:
   acceleration: 80
   drag: 0.1
   rotateSpeed: 500
-  rotationDeviation: 0.05
   tankExplosionPrefab: {fileID: 8174891885877789592, guid: 808ef05de9707944aa9f01d1bd55005b, type: 3}
   terrainExplosionPrefab: {fileID: 8174891885877789592, guid: f2e9421e9367bb64fbe5dd4f45d96d14, type: 3}
   waterExplosionPrefab: {fileID: 8174891885877789592, guid: 03c5e54f161b60b4aab1fe577677c214, type: 3}
@@ -372,7 +371,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.523
   m_Pitch: 1
   Loop: 0
   Mute: 0
