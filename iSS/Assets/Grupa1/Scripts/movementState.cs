@@ -7,7 +7,7 @@ public class MovementState : MonoBehaviour
     public MonoBehaviour shootingState;
 
     private CharacterController controller;
-    [SerializeField] private float playerSpeed = 100.0f;
+    [SerializeField] private float playerSpeed = 2f;
     private Animator animator;
     private Camera FPcamera;
     private Camera TPcamera;
