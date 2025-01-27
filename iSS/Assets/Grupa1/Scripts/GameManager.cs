@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
             SwitchViewState();
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             isFirstPersonCamera = !isFirstPersonCamera;
         }

@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3436556444971429608}
   - component: {fileID: 2353056158515717263}
   - component: {fileID: -4616913905731285647}
+  - component: {fileID: 4867694672180794322}
   m_Layer: 0
   m_Name: Explosion
-  m_TagString: Untagged
+  m_TagString: deadly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4902,3 +4903,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 2
+--- !u!136 &4867694672180794322
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4234504702591132803}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.4800003
+  m_Height: 4.9600005
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

@@ -18,6 +18,8 @@ public class MovementScript : MonoBehaviour
     private float rotationInput = 0f;
     private bool m_IsOnGround;
 
+    public AudioSource tracksound;
+
     private void Start()
     {
         currentVelocity = rigidBody.velocity;
@@ -51,6 +53,12 @@ public class MovementScript : MonoBehaviour
             }
 
         }
+
+
+        if (rigidBody.velocity.x != 0 && !tracksound.isPlaying)
+            tracksound.Play();
+        else if (rigidBody.velocity.x == 0 && tracksound.isPlaying)
+            tracksound.Stop();
     }
 
     void FixedUpdate()
@@ -85,7 +93,6 @@ public class MovementScript : MonoBehaviour
             float rotationAmount = rotationInput * rotateSpeed * Time.fixedDeltaTime;
             transform.Rotate(0f, rotationAmount, 0f);
         }
-
 
 
 

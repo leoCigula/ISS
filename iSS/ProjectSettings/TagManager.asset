@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tank
   - Water
+  - deadly
   layers:
   - Default
   - TransparentFX

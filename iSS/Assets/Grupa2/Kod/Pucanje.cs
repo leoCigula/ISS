@@ -8,8 +8,8 @@ public class Pucanje : MonoBehaviour
     public Transform FireStart; 
     public float shellLifeTime = 5.0f; 
     public float shellSpeed = 40.0f; 
-    public GameObject explosionEffectPrefab; 
-
+    public GameObject explosionEffectPrefab;
+    public AudioSource audioClip;
     private Transform cannon;
 
     void Start()
@@ -24,7 +24,7 @@ public class Pucanje : MonoBehaviour
 
          newShell.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
-
+        audioClip.Play();
        
         var shellHandler = newShell.gameObject.AddComponent<ShellCollisionHandler>();
         shellHandler.explosionEffectPrefab = explosionEffectPrefab; 
