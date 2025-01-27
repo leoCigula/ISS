@@ -1077,6 +1077,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 223463606881885989, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 223463606881885989, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 522080468165210495, guid: e878d8bbbfb74d24ca92de15eb17de45, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
       value: 0.5
