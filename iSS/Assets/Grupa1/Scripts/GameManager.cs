@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
     // Mijenja stanje i kameru kojom se upravlja
     private void SwitchViewState()
     {
-        // TPcamera.enabled = movementState.enabled | deathState.enabled;
+        TPcamera.enabled = movementState.enabled | deathState.enabled;
         tpcScript.enabled = !deathState.enabled && !isFirstPersonCamera && !shootingState.enabled;
         TPcamera.enabled = deathState.enabled || !isFirstPersonCamera;
         FPcamera.enabled = shootingState.enabled | (movementState.enabled && isFirstPersonCamera);
