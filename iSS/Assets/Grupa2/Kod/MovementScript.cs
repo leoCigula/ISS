@@ -55,10 +55,10 @@ public class MovementScript : MonoBehaviour
         }
 
 
-        if (rigidBody.velocity.x != 0 && !tracksound.isPlaying)
-            tracksound.Play();
-        else if (rigidBody.velocity.x == 0 && tracksound.isPlaying)
-            tracksound.Stop();
+        // if (rigidBody.velocity.x != 0 && !tracksound.isPlaying)
+        //     tracksound.Play();
+        // else if (rigidBody.velocity.x == 0 && tracksound.isPlaying)
+        //     tracksound.Stop();
     }
 
     void FixedUpdate()
