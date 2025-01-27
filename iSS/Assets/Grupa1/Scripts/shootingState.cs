@@ -46,11 +46,11 @@ public class ShootingState : MonoBehaviour
             fpcScript.mouseSensitivity = 0.67f;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GetComponent<DeathState>().enabled = true;
-            enabled = false;
-        }
+       // if (Input.GetKeyDown(KeyCode.Space))
+       // {
+         //   GetComponent<DeathState>().enabled = true;
+         //   enabled = false;
+        //}
     }
 
     IEnumerator StartRecoil()

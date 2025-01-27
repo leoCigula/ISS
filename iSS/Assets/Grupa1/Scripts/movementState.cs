@@ -96,11 +96,11 @@ public class MovementState : MonoBehaviour
             FPcamera.GetComponent<ViewRotation>().mouseSensitivity = 0.4f;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GetComponent<DeathState>().enabled = true;
-            enabled = false;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+          //  GetComponent<DeathState>().enabled = true;
+            //enabled = false;
+        //}
     }
 
     // Upravlja zvukovima hodanja
